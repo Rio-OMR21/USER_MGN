@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="bootstrap-4/css/bootstrap.min.css">
+  </<script src="bootstrap-4/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+  <h2 >USER MANAGEMENT SYSTEM </h2>
+  <tr>
+    <div align = "left" >
+      <h3><a th:href="@{'/new'}">Add new</a></h3>
+    </div>
+  </tr>
+  <tr>
+    <div class="colsm5"
+         align = "center">
+      <div class="panelbody"
+           align = "center" >
+        <table class="table">
+          <thead class="thead-dark">
+          <tr>
+
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Second Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>e-mail</th>
+            <th>mobile</th>
+            <th>PIN</th>
+            <th>Option</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="user : ${listuser}">
+            <td th:text="${user.id}">User ID</td>
+            <td th:text="${user.fname}"> First Name</td>
+            <td th:text="${user.lname}">Last Name</td>
+            <td th:text="${user.gender}">gender</td>
+            <td th:text="${user.age}">Age</td>
+            <td th:text="${user.email}">e-mail</td>
+            <td th:text="${user.mobile}">Mobile</td>
+            <td th:text="${user.pin}">PIN</td>
+            <td>
+              <a th:href="@{'/edit/' + ${user.id}}">Edit</a>
+            </td>
+            <td>
+              <a th:href="@{'/delete/' + ${user.id}}">Delete</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+
+</body>
+</html>

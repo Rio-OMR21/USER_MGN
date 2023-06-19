@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <style>
+    .login{
+      margin: auto;
+      background-image: linear-gradient(to top right,cadetblue, darkcyan, cyan);
+      padding-top: 10px;
+      padding-bottom: 20px;
+      height: auto;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: x-large;
+      text-align: center;
+      border-radius: 15px;
+    
+    }
+    .input{
+      width: 50%;
+      height: 35px;
+      border-radius: 5px;
+      margin: 5px;
+      border-style: hidden;
+    
+    }
+    #submit{
+      background-image: linear-gradient(blue,lightgreen);
+      width: 100px;
+      height: 60px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      border-radius: 15px;
+      color: black;
+      font-weight: bolder;
+    }
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+
+            const Login = document.querySelector("#submit");
+            Login.onclick = (e)=> {
+            e.preventDefault();
+        
+            const loginname = document.getElementById("logname").value;
+            const loginemail = document.getElementById("logemail").value;
+        
+            const logname =localStorage.getItem("name");
+            const logemail =localStorage.getItem("email");
+        
+            if(loginname == "" && loginemail == ""){
+                alert("Fill in your credentials please");
+        
+            }
+            else{
+                if(loginname == logname && loginemail == logemail){
+                    alert("Log in Successful");
+                    window.location.href = "index.html";
+                }
+                else{
+                    alert("Something went wrong");
+                }
+            }
+            
+        }
+        
+        });
+    </script>
+</head>
+<body>
+        <div class="login">
+           <h2 style="text-align: center; font-family: Arial, Helvetica, sans-serif; text-decoration: blue; font-size: xx-large;">Fill in Your Iformation to log in</h2>
+
+           <label id="error" style="color: rgb(232, 130, 13);"></label>
+           
+           <form id="logform" class="form">
+            <input class="input" type="email" id="logemail" required="" placeholder="Enter Email"><br><br>
+            <input class="input" type="number" id="logpass" required="" placeholder="Enter Password"><br><br>
+            
+            <input type="submit" id="submit" value="LOG-IN">
+           </form>
+        </div>
+</body>
+</html>
